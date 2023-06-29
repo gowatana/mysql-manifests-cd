@@ -1,0 +1,5 @@
+resources:
+- scheduled-snapshot.yaml
+- snapshot.yaml
+
+namespace: mysql-pj-01

@@ -1,0 +1,41 @@
+---
+apiVersion: dataservices.nutanix.com/v1alpha1
+kind: Application
+metadata:
+  name: mysql
+  namespace: mysql-pj-01
+spec:
+  applicationSelector:
+---
+apiVersion: dataservices.nutanix.com/v1alpha1
+kind: SchedulePolicy
+metadata:
+  name: schedulepolicy-interval-30min
+  namespace: mysql-pj-01
+spec:
+  interval:
+    minutes: 30
+---
+apiVersion: dataservices.nutanix.com/v1alpha1
+kind: ProtectionPlan
+metadata:
+  name: pplan-cnds
+  namespace: mysql-pj-01
+spec:
+  snapshotPolicies:
+  - schedulePolicyName: schedulepolicy-interval-30min
+    retentionPolicy:
+      retain: 48
+  suspend: false
+---
+apiVersion: dataservices.nutanix.com/v1alpha1
+kind: AppProtectionPlan
+metadata:
+  name: app-plan
+  namespace: mysql-pj-01
+spec:
+  protectionPlanName: pplan-cnds
+  suspend: false
+  applicationNames: 
+  - mysql
+

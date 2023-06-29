@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mysql4-auto-backup
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gowatana/mysql-manifests-cd
+    targetRevision: HEAD
+    path: .
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+  destination:
+    server: https://kubernetes.default.svc

@@ -1,0 +1,11 @@
+---
+apiVersion: dataservices.nutanix.com/v1alpha1
+kind: ApplicationSnapshot
+metadata:
+  name: snapshot-init
+  namespace: mysql-pj-01
+spec:
+  source:
+    applicationRef:
+      name: mysql
+      namespace: mysql-pj-01

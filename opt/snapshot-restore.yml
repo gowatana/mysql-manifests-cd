@@ -1,0 +1,9 @@
+---
+apiVersion: dataservices.nutanix.com/v1alpha1
+kind: ApplicationRestoreRequest
+metadata:
+  name: restore-mysql-snapshot-1
+  namespace: mysql-pj-01
+spec:
+  applicationSnapshotName: snapshot-init
+
