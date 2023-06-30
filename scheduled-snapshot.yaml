@@ -35,7 +35,7 @@ metadata:
   namespace: mysql-pj-01
 spec:
   protectionPlanName: pplan-cnds
-  suspend: false
+  #suspend: false
   applicationNames: 
   - mysql
 
